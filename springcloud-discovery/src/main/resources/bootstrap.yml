@@ -1,0 +1,14 @@
+
+spring:
+    application:
+        name: eureka-cloud
+    cloud:
+      config:
+        uri: ${CONFIG_SERVER_URL:http://localhost:8888}
+
+# security:
+#  basic:
+#    enabled: true
+# user:
+#     name: user # login username
+#     password: password

@@ -1,0 +1,50 @@
+
+ribbon.eureka.enabled: true 
+
+server:
+    port: 0
+
+endpoints:
+    restart:
+        enabled: true
+    shutdown:
+        enabled: true
+    health:
+        sensitive: false
+ 
+eureka:
+    instance:
+        hostname: 127.0.0.1
+        port: 8761
+        leaseRenewalIntervalInSeconds: 10
+        preferIpAddress: true # 用ip进行注册，默认是hostname
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}}
+    client:
+      healthcheck:
+        enabled: true
+      registryFetchIntervalSeconds: 5
+      serviceUrl:
+        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/  
+        
+db:
+  #driverClassName: "oracle.jdbc.driver.OracleDriver"
+  driverClassName: "com.mysql.jdbc.Driver"
+  url: "jdbc:mysql://localhost:3306/gedb?useUnicode=true&characterEncoding=utf-8"
+  username: root
+  password: root
+  filters: "stat,log4j"
+  maxActive: 20
+  initialSize: 1
+  maxWait: 60000
+  minIdle: 10
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  #validationQuery: SELECT 1 FROM DUAL
+  validationQuery: SELECT 1
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+  maxOpenPreparedStatements: 20
+  removeAbandoned: false
+  removeAbandonedTimeout: 1800
+  logAbandoned: true

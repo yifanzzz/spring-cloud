@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: gateway-cloud
+    cloud:
+      config: 
+        profile: dev ## 配置文件后缀名称 ，配置文件为gateway-cloud-dev.properties 或 gateway-cloud-dev.yml
+        label: master ## git分支名称
+        failFast: false
+        uri: http://127.0.0.1:8888

@@ -1,0 +1,26 @@
+server: 
+  port: 8888
+  
+# 配置服务注册中心
+eureka:
+    instance:
+        hostname: localhost
+        port: 8761
+        leaseRenewalIntervalInSeconds: 10
+        preferIpAddress: true
+    client:
+      healthcheck:
+        enabled: true
+      registryFetchIntervalSeconds: 5
+      serviceUrl:
+        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+# git仓库配置
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: D:/MyWorkSpace/EclipseWorkspace  #此处应该配置一个完整的git地址
+#          searchPaths:
+#          username:
+#          password:

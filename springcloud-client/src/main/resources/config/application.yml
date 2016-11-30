@@ -1,0 +1,46 @@
+
+server:
+    port: 0
+
+endpoints:
+    restart:
+        enabled: true
+    shutdown:
+        enabled: true
+    health:
+        sensitive: false
+ 
+eureka:
+    instance:
+        hostname: 127.0.0.1
+        port: 8761
+        leaseRenewalIntervalInSeconds: 10
+        preferIpAddress: true # 用ip进行注册，默认是hostname
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}}
+    client:
+      healthcheck:
+        enabled: true
+      registryFetchIntervalSeconds: 5
+      serviceUrl:
+        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/  
+        
+#设置超时时间
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 50000
+
+#开启注册中心
+ribbon.eureka.enabled: true
+ 
+# Max number of retries    
+ribbon.MaxAutoRetries: 0 
+    
+# Max number of next servers to retry (excluding the first server)  
+ribbon.MaxAutoRetriesNextServer: 0 
+
+#设置连接超时时间
+ribbon.ConnectTimeout: 3000
+#读取数据的超时时间
+ribbon.ReadTimeout: 60000
+#是否开启重试
+ribbon.OkToRetryOnAllOperations: true
+
+

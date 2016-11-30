@@ -1,0 +1,23 @@
+server:
+    port: 9000
+
+endpoints:
+    restart:
+        enabled: true
+    shutdown:
+        enabled: true
+    health:
+        sensitive: false
+
+eureka:
+    instance:
+        hostname: localhost
+        port: 8761
+        leaseRenewalIntervalInSeconds: 10
+        preferIpAddress: true # 用ip进行注册，默认是hostname
+    client:
+        healthcheck:
+            enabled: true
+        registryFetchIntervalSeconds: 5
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
