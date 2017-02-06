@@ -9,7 +9,7 @@ import org.springframework.validation.beanvalidation.MethodValidationPostProcess
 @Configuration
 @ServletComponentScan
 public class ApplicationConfiguration{
-	
+
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer pertySourprocesPlaceholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();
@@ -19,5 +19,5 @@ public class ApplicationConfiguration{
 	public MethodValidationPostProcessor methodValidationPostProcessor() {//用于参数验证
 		return new MethodValidationPostProcessor();
 	}
-	
+
 }

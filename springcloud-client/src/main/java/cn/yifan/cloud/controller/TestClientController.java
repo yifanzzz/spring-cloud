@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/client/test")
 @Validated
 public class TestClientController {
-	
-	@Autowired
-	private TestClientService testClientService;
-	
-	@RequestMapping(value="/list",method=RequestMethod.GET)
-	public ResponseMsg getList(){
-		return testClientService.list();
-	}
+
+    @Autowired
+    private TestClientService testClientService;
+
+    @RequestMapping(value="/list",method=RequestMethod.GET)
+    public ResponseMsg getList(){
+        return testClientService.list();
+    }
 
 }

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class FilterController {
 
-    @RequestMapping("/**")
+    @RequestMapping("*/*")
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public void unmappedRequest(HttpServletRequest request) throws Exception {
         String uri = request.getRequestURI();
